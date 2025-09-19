@@ -1,4 +1,6 @@
-import time
+# This file is part of the game project "Tamagochi".
+# Licensed under the GNU General Public License v3.0 or later.
+# Copyright (C) 2025 Albertozj
 
 print("importing resources")
 import time as stime
@@ -12,6 +14,19 @@ stime.sleep(1)
 vrp.name = vrp.name
 vrp.alive = vrp.alive
 zero = 0
+
+print("###########################")
+print("#        Tamagochi        #")
+print("#          V.1.0          #")
+print("# Albertozj Github GLP v3 #")
+print("#  build for Python 3.13  #")
+print("###########################")
+#This Project is licensed under the GLP v3. license
+#This program is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation, either version 3 of the License, or
+#(at your option) any later version.
+
 
 def start():
     print("Welcome to Tamagochi!")
@@ -55,7 +70,7 @@ def savepet():
     file.write(f"{vrp.saves}\n")
     stime.sleep(1)
     print("Game needs to restart! Please press ctrl+c")
-    time.sleep(10000000000000000)
+    stime.sleep(10000000000000000)
     print("game_saved!")
 
 def loadpet():
