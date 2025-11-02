@@ -7,8 +7,6 @@ import time as stime
 import vrp
 import os
 vrp.runs + 1
-import feed
-import logcm
 print("done!")
 stime.sleep(1)
 vrp.name = vrp.name
@@ -19,10 +17,10 @@ print("###########################")
 print("#        Tamagochi        #")
 print("#          V.1.0          #")
 print("# Albertozj Github GLP v3 #")
-print("#  build for Python 3.13  #")
+print("# tested for Python 3.13  #")
 print("###########################")
-#This Project is licensed under the GLP v3. license
-#This program is free software: you can redistribute it and/or modify
+#This project is licensed under the GLP v3. license
+#This project is free software: you can redistribute it and/or modify
 #it under the terms of the GNU General Public License as published by
 #the Free Software Foundation, either version 3 of the License, or
 #(at your option) any later version.
@@ -39,6 +37,23 @@ def start():
     stime.sleep(1)
     print("Good luck!")
     stime.sleep(2.8)
+
+
+def savepet():
+ with open("petd.dat", "w") as file:
+    file.write(f"{vrp.name}\n")
+    file.write(f"{vrp.hunger}\n")
+    file.write(f"{vrp.happiness}\n")
+    file.write(f"{vrp.energy}\n")
+    file.write(f"{vrp.age}\n")
+    file.write(f"{vrp.money}\n")
+    file.write(f"{vrp.alive}\n")
+    file.write(f"{vrp.runs}\n")
+    file.write(f"{vrp.saves}\n")
+    stime.sleep(1)
+    print("Game needs to restart! Please press ctrl+c")
+    stime.sleep(10000000000000000)
+    print("game_saved!")
 
 def new_game():
     print("Welcome! Type the name of your new pet :3!")
@@ -57,22 +72,6 @@ def new_game():
         # HERE THE STORY DEF z.B.: K1()
         start()
 
-def savepet():
- with open("petd.dat", "w") as file:
-    file.write(f"{vrp.name}\n")
-    file.write(f"{vrp.hunger}\n")
-    file.write(f"{vrp.happiness}\n")
-    file.write(f"{vrp.energy}\n")
-    file.write(f"{vrp.age}\n")
-    file.write(f"{vrp.money}\n")
-    file.write(f"{vrp.alive}\n")
-    file.write(f"{vrp.runs}\n")
-    file.write(f"{vrp.saves}\n")
-    stime.sleep(1)
-    print("Game needs to restart! Please press ctrl+c")
-    stime.sleep(10000000000000000)
-    print("game_saved!")
-
 def loadpet():
     if os.path.exists("petd.dat"):   # check ob Savefile existiert
         with open("petd.dat", "r") as file:
@@ -87,7 +86,7 @@ def loadpet():
             vrp.alive = (lines[6] == "True")
             vrp.runs = int(lines[7])
             vrp.save = True
-            vrp.saves = int(lines[9])
+            vrp.saves = int(lines[8])
             print("Savegame loaded!")
         return True
     else:
