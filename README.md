@@ -3,9 +3,15 @@
 ### If there are any issues, please report them.
 ### This Application is not complete!
 ## ------------------------------------------------------------------------
-# What's new of Tamagochi:
+# What's new in Tamagochi:
 
-# 1.0.1 Latest version
+# 1.1.0 Latest version
+#### 
+#### Added a store where you can buy food for your pet
+
+##
+
+# 1.0.1
 #### 
 #### Errors while starting the game
 

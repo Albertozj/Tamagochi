@@ -9,5 +9,7 @@ food = 2
 name = ""  # Will be set later
 runs =  0
 saves = 0
+costcl = 2
+chickenlegscount = 0
 
 print("vrp")

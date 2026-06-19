@@ -1,21 +1,22 @@
 # This file is part of the game project "Tamagochi".
 # Licensed under the GNU General Public License v3.0 or later.
 # Copyright (C) 2025 Albertozj
-
 print("importing resources")
 import time as stime
 import vrp
 import os
-vrp.runs + 1
+import store
+import sys
+vrp.runs += 1
 print("done!")
-stime.sleep(1)
 vrp.name = vrp.name
 vrp.alive = vrp.alive
 zero = 0
 
+
 print("###########################")
 print("#        Tamagochi        #")
-print("#          V.1.0          #")
+print("#          V1.1.0         #")
 print("# Albertozj Github GLP v3 #")
 print("# tested for Python 3.13  #")
 print("###########################")
@@ -24,6 +25,13 @@ print("###########################")
 #it under the terms of the GNU General Public License as published by
 #the Free Software Foundation, either version 3 of the License, or
 #(at your option) any later version.
+
+def breakout():
+    exit(1)
+
+
+def call_storepage():
+    store.store_page()
 
 
 def start():
@@ -50,9 +58,11 @@ def savepet():
     file.write(f"{vrp.alive}\n")
     file.write(f"{vrp.runs}\n")
     file.write(f"{vrp.saves}\n")
+    file.write(f"{vrp.costcl}\n")
+    file.write(f"{vrp.chickenlegscount}\n")
     stime.sleep(1)
     print("Game needs to restart! Please press ctrl+c")
-    stime.sleep(10000000000000000)
+    sys.exit(0)
     print("game_saved!")
 
 def new_game():
@@ -69,6 +79,9 @@ def new_game():
         savepet()
         print("Starting game...")
         stime.sleep(1.3)
+        print("redirecting to in-game store page...")
+        call_storepage()
+
         # HERE THE STORY DEF z.B.: K1()
         start()
 
@@ -87,7 +100,11 @@ def loadpet():
             vrp.runs = int(lines[7])
             vrp.save = True
             vrp.saves = int(lines[8])
+            vrp.costcl = int(lines[9])
+            vrp.chickenlegscount = int(lines[10])
             print("Savegame loaded!")
+            print("redirectoring to in-game store page...")
+            call_storepage()
         return True
     else:
         new_game()
@@ -96,7 +113,7 @@ def loadpet():
 def check():
     loadpet()
     if vrp.saves == True:
-     print("Your last pet died! Want to start a new life?")
+     print("Your last pet died! Want to start a new pet?")
      if os.path.exists("petd.dat"):
          os.remove("petd.dat")
      stime.sleep(1)
